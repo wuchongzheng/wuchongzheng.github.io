@@ -1,0 +1,418 @@
+<!DOCTYPE html>
+<html lang="Zh-CN">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#222">
+<meta name="generator" content="Hexo 4.2.0">
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png">
+  <link rel="mask-icon" href="/images/logo.svg" color="#222">
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+<link rel="stylesheet" href="/lib/font-awesome/css/font-awesome.min.css">
+
+<script id="hexo-configurations">
+    var NexT = window.NexT || {};
+    var CONFIG = {"hostname":"yoursite.com","root":"/","scheme":"Pisces","version":"7.7.1","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":false,"show_result":false,"style":null},"back2top":{"enable":true,"sidebar":false,"scrollpercent":false},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":false,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}}};
+  </script>
+
+  <meta name="description" content="第一次作业：python 基础  展开查看  列表（list）1. 可以容纳不同的数据类型 2. 是一种可变序列 3. 可以通过索引访问元素（从0开始） 4. 支持切片运算 len()  使用len（）函数可以查看列表的长度123squ &#x3D; [1,2,3]length &#x3D; len(squ)print(length) 索引  列表是一个可变对象，可以通过索引来改变列表元素的值，也">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Python作业一">
+<meta property="og:url" content="http://yoursite.com/2020/02/19/python%E4%BD%9C%E4%B8%9A%E4%B8%80/index.html">
+<meta property="og:site_name" content="python小迷妹">
+<meta property="og:description" content="第一次作业：python 基础  展开查看  列表（list）1. 可以容纳不同的数据类型 2. 是一种可变序列 3. 可以通过索引访问元素（从0开始） 4. 支持切片运算 len()  使用len（）函数可以查看列表的长度123squ &#x3D; [1,2,3]length &#x3D; len(squ)print(length) 索引  列表是一个可变对象，可以通过索引来改变列表元素的值，也">
+<meta property="og:locale" content="Zh_CN">
+<meta property="og:image" content="https://image.baidu.com/search/detail?ct=503316480&z=0&ipn=d&word=%E8%A1%A8%E6%83%85%E5%8C%85&step_word=&hs=0&pn=2&spn=0&di=102850&pi=0&rn=1&tn=baiduimagedetail&is=0%252C0&istype=0&ie=utf-8&oe=utf-8&in=&cl=2&lm=-1&st=undefined&cs=1534954207%252C3672118552&os=2076544618%252C1033721998&simid=3401700530%252C419071342&adpicid=0&lpn=0&ln=1847&fr=&fmq=1587381118271_R&fm=&ic=undefined&s=undefined&hd=undefined&latest=undefined&copyright=undefined&se=&sme=&tab=0&width=undefined&height=undefined&face=undefined&ist=&jit=&cg=&bdtype=0&oriquery=&objurl=http%253A%252F%252Fimg.tukexw.com%252Fimg%252F4c03dfc1807e4985.jpg&fromurl=ippr_z2C%2524qAzdH3FAzdH3Frtv_z%2526e3Bp7hjxo_z%2526e3Bv54AzdH3FrAzdH3Fg2hu9j42su6jq2e191g27jzj52b1n1q26jyj52x1z1r2hjy1522j81g2njijAzdH3F&gsm=3&rpstart=0&rpnum=0&islist=&querylist=&force=undefined">
+<meta property="article:published_time" content="2020-02-19T04:00:08.000Z">
+<meta property="article:modified_time" content="2020-04-20T11:16:50.228Z">
+<meta property="article:author" content="伍小帅">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://image.baidu.com/search/detail?ct=503316480&z=0&ipn=d&word=%E8%A1%A8%E6%83%85%E5%8C%85&step_word=&hs=0&pn=2&spn=0&di=102850&pi=0&rn=1&tn=baiduimagedetail&is=0%252C0&istype=0&ie=utf-8&oe=utf-8&in=&cl=2&lm=-1&st=undefined&cs=1534954207%252C3672118552&os=2076544618%252C1033721998&simid=3401700530%252C419071342&adpicid=0&lpn=0&ln=1847&fr=&fmq=1587381118271_R&fm=&ic=undefined&s=undefined&hd=undefined&latest=undefined&copyright=undefined&se=&sme=&tab=0&width=undefined&height=undefined&face=undefined&ist=&jit=&cg=&bdtype=0&oriquery=&objurl=http%253A%252F%252Fimg.tukexw.com%252Fimg%252F4c03dfc1807e4985.jpg&fromurl=ippr_z2C%2524qAzdH3FAzdH3Frtv_z%2526e3Bp7hjxo_z%2526e3Bv54AzdH3FrAzdH3Fg2hu9j42su6jq2e191g27jzj52b1n1q26jyj52x1z1r2hjy1522j81g2njijAzdH3F&gsm=3&rpstart=0&rpnum=0&islist=&querylist=&force=undefined">
+
+<link rel="canonical" href="http://yoursite.com/2020/02/19/python%E4%BD%9C%E4%B8%9A%E4%B8%80/">
+
+
+<script id="page-configurations">
+  // https://hexo.io/docs/variables.html
+  CONFIG.page = {
+    sidebar: "",
+    isHome: false,
+    isPost: true
+  };
+</script>
+
+  <title>Python作业一 | python小迷妹</title>
+  
+
+
+
+
+
+
+  <noscript>
+  <style>
+  .use-motion .brand,
+  .use-motion .menu-item,
+  .sidebar-inner,
+  .use-motion .post-block,
+  .use-motion .pagination,
+  .use-motion .comments,
+  .use-motion .post-header,
+  .use-motion .post-body,
+  .use-motion .collection-header { opacity: initial; }
+
+  .use-motion .site-title,
+  .use-motion .site-subtitle {
+    opacity: initial;
+    top: initial;
+  }
+
+  .use-motion .logo-line-before i { left: initial; }
+  .use-motion .logo-line-after i { right: initial; }
+  </style>
+</noscript>
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage">
+  <div class="container use-motion">
+    <div class="headband"></div>
+
+    <header class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="Toggle navigation bar">
+      <span class="toggle-line toggle-line-first"></span>
+      <span class="toggle-line toggle-line-middle"></span>
+      <span class="toggle-line toggle-line-last"></span>
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <div>
+      <a href="/" class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">python小迷妹</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+  </div>
+
+  <div class="site-nav-right"></div>
+</div>
+
+
+<nav class="site-nav">
+  
+  <ul id="menu" class="menu">
+        <li class="menu-item menu-item-home">
+
+    <a href="/" rel="section"><i class="fa fa-fw fa-home"></i>Home</a>
+
+  </li>
+        <li class="menu-item menu-item-about">
+
+    <a href="/about/" rel="section"><i class="fa fa-fw fa-user"></i>About</a>
+
+  </li>
+        <li class="menu-item menu-item-tags">
+
+    <a href="/tags/" rel="section"><i class="fa fa-fw fa-tags"></i>Tags</a>
+
+  </li>
+        <li class="menu-item menu-item-categories">
+
+    <a href="/categories/" rel="section"><i class="fa fa-fw fa-th"></i>Categories</a>
+
+  </li>
+        <li class="menu-item menu-item-archives">
+
+    <a href="/archives/" rel="section"><i class="fa fa-fw fa-archive"></i>Archives</a>
+
+  </li>
+  </ul>
+
+</nav>
+</div>
+    </header>
+
+    
+  <div class="back-to-top">
+    <i class="fa fa-arrow-up"></i>
+    <span>0%</span>
+  </div>
+
+
+    <main class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          
+
+          <div class="content">
+            
+
+  <div class="posts-expand">
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block " lang="Zh-CN">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2020/02/19/python%E4%BD%9C%E4%B8%9A%E4%B8%80/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/head.jpg">
+      <meta itemprop="name" content="伍小帅">
+      <meta itemprop="description" content="十有八九，八九不离十">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="python小迷妹">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          Python作业一
+        </h1>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              <span class="post-meta-item-text">Posted on</span>
+
+              <time title="Created: 2020-02-19 12:00:08" itemprop="dateCreated datePublished" datetime="2020-02-19T12:00:08+08:00">2020-02-19</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                <span class="post-meta-item-text">Edited on</span>
+                <time title="Modified: 2020-04-20 19:16:50" itemprop="dateModified" datetime="2020-04-20T19:16:50+08:00">2020-04-20</time>
+              </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+        <h2 id="第一次作业："><a href="#第一次作业：" class="headerlink" title="第一次作业："></a>第一次作业：</h2><p>python 基础</p>
+<details>
+<summary>展开查看</summary>
+
+<h2 id="列表（list）"><a href="#列表（list）" class="headerlink" title="列表（list）"></a>列表（list）</h2><pre><code>1. 可以容纳不同的数据类型
+2. 是一种可变序列
+3. 可以通过索引访问元素（从0开始）
+4. 支持切片运算</code></pre><ul>
+<li>len()<br>  使用len（）函数可以查看列表的长度<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">squ &#x3D; [1,2,3]</span><br><span class="line">length &#x3D; len(squ)</span><br><span class="line">print(length)</span><br></pre></td></tr></table></figure></li>
+<li>索引<br>  列表是一个可变对象，可以通过索引来改变列表元素的值，也可以通过列表来访问元素<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">squ &#x3D; [1,2,3,&#39;A&#39;]</span><br><span class="line">print(squ[3])</span><br><span class="line">squ[3] &#x3D; 4</span><br><span class="line">print(squ)</span><br><span class="line">print(squ[10]) # IndexError: List index out of range</span><br></pre></td></tr></table></figure></li>
+<li>切片<br>  [start:end:step]<ul>
+<li>start:起始位置</li>
+<li>end:结束位置</li>
+<li>step：步长，默认为1，为正数时，从左到右。为负数时，从右到左。<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">list &#x3D; [0,1,2,3,4,5,6,7]</span><br><span class="line">print(list[:5])</span><br><span class="line">#切片反转元素</span><br><span class="line">print(list[::-1])</span><br></pre></td></tr></table></figure>
+
+</li>
+</ul>
+</li>
+</ul>
+<h2 id="markdown语法"><a href="#markdown语法" class="headerlink" title="markdown语法"></a>markdown语法</h2><ul>
+<li>折叠标题内容<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">&lt;details&gt;</span><br><span class="line">&lt;summary&gt;展开查看&lt;&#x2F;summary&gt;</span><br><span class="line"></span><br><span class="line">&lt;&#x2F;details&gt;</span><br></pre></td></tr></table></figure></li>
+<li>插入代码<br>“  <code>代码</code>  “如：<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">x&#x3D;hallo,python!</span><br><span class="line">print(x)</span><br></pre></td></tr></table></figure></li>
+<li>插入图片<br>“![描述文字]（网址）”如：<br><img src="https://image.baidu.com/search/detail?ct=503316480&z=0&ipn=d&word=%E8%A1%A8%E6%83%85%E5%8C%85&step_word=&hs=0&pn=2&spn=0&di=102850&pi=0&rn=1&tn=baiduimagedetail&is=0%2C0&istype=0&ie=utf-8&oe=utf-8&in=&cl=2&lm=-1&st=undefined&cs=1534954207%2C3672118552&os=2076544618%2C1033721998&simid=3401700530%2C419071342&adpicid=0&lpn=0&ln=1847&fr=&fmq=1587381118271_R&fm=&ic=undefined&s=undefined&hd=undefined&latest=undefined&copyright=undefined&se=&sme=&tab=0&width=undefined&height=undefined&face=undefined&ist=&jit=&cg=&bdtype=0&oriquery=&objurl=http%3A%2F%2Fimg.tukexw.com%2Fimg%2F4c03dfc1807e4985.jpg&fromurl=ippr_z2C%24qAzdH3FAzdH3Frtv_z%26e3Bp7hjxo_z%26e3Bv54AzdH3FrAzdH3Fg2hu9j42su6jq2e191g27jzj52b1n1q26jyj52x1z1r2hjy1522j81g2njijAzdH3F&gsm=3&rpstart=0&rpnum=0&islist=&querylist=&force=undefined" alt="表情包"></li>
+<li>插入链接<br>“<a href="网址">描述文字</a>“<br><a href="https://www.baidu.com/" target="_blank" rel="noopener">百度</a></details></li>
+</ul>
+
+    </div>
+
+    
+    
+    
+
+      <footer class="post-footer">
+
+        
+
+
+        
+    <div class="post-nav">
+      <div class="post-nav-item"></div>
+      <div class="post-nav-item">
+    <a href="/2020/04/20/python%E4%BD%9C%E4%B8%9A%E4%BA%8C/" rel="next" title="python作业二">
+      python作业二 <i class="fa fa-chevron-right"></i>
+    </a></div>
+    </div>
+      </footer>
+    
+  </article>
+  
+  
+  
+
+  </div>
+
+
+          </div>
+          
+
+<script>
+  window.addEventListener('tabs:register', () => {
+    let activeClass = CONFIG.comments.activeClass;
+    if (CONFIG.comments.storage) {
+      activeClass = localStorage.getItem('comments_active') || activeClass;
+    }
+    if (activeClass) {
+      let activeTab = document.querySelector(`a[href="#comment-${activeClass}"]`);
+      if (activeTab) {
+        activeTab.click();
+      }
+    }
+  });
+  if (CONFIG.comments.storage) {
+    window.addEventListener('tabs:click', event => {
+      if (!event.target.matches('.tabs-comment .tab-content .tab-pane')) return;
+      let commentClass = event.target.classList[1];
+      localStorage.setItem('comments_active', commentClass);
+    });
+  }
+</script>
+
+        </div>
+          
+  
+  <div class="toggle sidebar-toggle">
+    <span class="toggle-line toggle-line-first"></span>
+    <span class="toggle-line toggle-line-middle"></span>
+    <span class="toggle-line toggle-line-last"></span>
+  </div>
+
+  <aside class="sidebar">
+    <div class="sidebar-inner">
+
+      <ul class="sidebar-nav motion-element">
+        <li class="sidebar-nav-toc">
+          Table of Contents
+        </li>
+        <li class="sidebar-nav-overview">
+          Overview
+        </li>
+      </ul>
+
+      <!--noindex-->
+      <div class="post-toc-wrap sidebar-panel">
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#第一次作业："><span class="nav-number">1.</span> <span class="nav-text">第一次作业：</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#列表（list）"><span class="nav-number">2.</span> <span class="nav-text">列表（list）</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#markdown语法"><span class="nav-number">3.</span> <span class="nav-text">markdown语法</span></a></li></ol></div>
+      </div>
+      <!--/noindex-->
+
+      <div class="site-overview-wrap sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <img class="site-author-image" itemprop="image" alt="伍小帅"
+      src="/images/head.jpg">
+  <p class="site-author-name" itemprop="name">伍小帅</p>
+  <div class="site-description" itemprop="description">十有八九，八九不离十</div>
+</div>
+<div class="site-state-wrap motion-element">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+          <a href="/archives/">
+        
+          <span class="site-state-item-count">6</span>
+          <span class="site-state-item-name">posts</span>
+        </a>
+      </div>
+  </nav>
+</div>
+
+
+
+      </div>
+
+    </div>
+  </aside>
+  <div id="sidebar-dimmer"></div>
+
+
+      </div>
+    </main>
+
+    <footer class="footer">
+      <div class="footer-inner">
+        
+
+<div class="copyright">
+  
+  &copy; 
+  <span itemprop="copyrightYear">2020</span>
+  <span class="with-love">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">伍小帅</span>
+</div>
+  <div class="powered-by">Powered by <a href="https://hexo.io/" class="theme-link" rel="noopener" target="_blank">Hexo</a> v4.2.0
+  </div>
+  <span class="post-meta-divider">|</span>
+  <div class="theme-info">Theme – <a href="https://pisces.theme-next.org/" class="theme-link" rel="noopener" target="_blank">NexT.Pisces</a> v7.7.1
+  </div>
+
+        
+
+
+
+
+
+
+
+
+      </div>
+    </footer>
+  </div>
+
+  
+  <script src="/lib/anime.min.js"></script>
+  <script src="/lib/velocity/velocity.min.js"></script>
+  <script src="/lib/velocity/velocity.ui.min.js"></script>
+
+<script src="/js/utils.js"></script>
+
+<script src="/js/motion.js"></script>
+
+
+<script src="/js/schemes/pisces.js"></script>
+
+
+<script src="/js/next-boot.js"></script>
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+  
+
+</body>
+</html>
